@@ -1,0 +1,29 @@
+<h1>{{title}}</h1>
+
+<table>
+    <tr>
+        <td>Dname</td>
+        <td>Dnumber</td>
+        {{!-- 열마다 위의 값을 넣어준다. --}}
+    </tr>
+    {{!-- 데이터가 입력될때마다 반복수행되는 부분 --}}
+    {{#each department}}
+    <form method="post">
+        <tr>
+            <td>{{Dname}}</td>
+            <td>{{Dnumber}}</td>
+            <td style="border: none; margin-left: 10px;">
+                <button 
+                 style="margin-left: 10px;" 
+                 name='delBtn' 
+                 type="submit" 
+                 value="{{Dnumber}}" 
+                 formaction="/delete"
+                >
+                삭제
+                </button>
+            </td>
+        </tr>
+    </form>
+ {{/each}}
+</table>

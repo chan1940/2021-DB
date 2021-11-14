@@ -1,0 +1,52 @@
+<h1>{{title}}</h1>
+{{!-- table을 작성한 파일이다. tr은 행, td는 열을 의미한다.
+each는 반복의 의미를 가진다고 생각하면 된다.
+{{#each 반복할 table이름}}
+each로 선언해서 데이터를 입력할 때마다 table을 하나씩
+추가해서 값이 입력되도록 한다. --}}
+<table>
+    <tr>
+        <td>Fname</td>
+        <td>Minit</td>
+        <td>Lname</td>
+        <td>Ssn</td>
+        <td>Bdate</td>
+        <td>Address</td>
+        <td>Sex</td>
+        <td>Salary</td>
+        <td>Super_ssn</td>
+        <td>Dno</td>
+    </tr>
+    {{#each employee}}
+    <tr>
+        <td>{{Fname}}</td>
+        <td>{{Minit}}</td>
+        <td>{{Lname}}</td>
+        <td>{{Ssn}}</td>
+        <td>{{Bdate}}</td>
+        <td>{{Address}}</td>
+        <td>{{Sex}}</td>
+        <td>{{Salary}}</td>
+        <td>{{Super_ssn}}</td>
+        <td>{{Dno}}</td>
+    </tr>
+    {{/each}}
+</table>
+
+<h1>{{title2}}</h1>
+<table>
+    <tr>
+        <td>Dname</td>
+        <td>Dnumber</td>
+        <td>Mgr_ssn</td>
+        <td>Mgr_start_date</td>
+    </tr>
+    {{#each department}}
+    <tr>
+        <td>{{Dname}}</td>
+        <td>{{Dnumber}}</td>
+        <td>{{Mgr_ssn}}</td>
+        <td>{{Mgr_start_date}}</td>
+    </tr>
+    {{/each}}
+</table>

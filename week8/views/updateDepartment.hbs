@@ -1,0 +1,28 @@
+<h1>{{title}}</h1>
+
+<table>
+    <tr>
+        <td>Dname</td>
+        <td>Dnumber</td>
+        <td>Mgr_ssn</td>
+        <td>Mgr_start_date</td>
+    </tr>
+    {{#each dept_res}}
+    <form method="post">
+        <tr>
+            <td><input type="text" name="dname" placeholder={{Dname}}></td>
+            <td>{{Dnumber}}</td>
+            <td>{{Mgr_ssn}}</td>
+            <td>{{Mgr_start_date}}</td>
+            <td><input type="submit" value="수정" formaction="/update/department"></td>
+        </tr>
+        {{!-- 이 부분이 data가 있을 때마다 반복해서 실행되는 곳이다.
+        input 태그는 네모 칸 안에 data를 넣게 해주는 역할을 한다.
+        form method="post"의 우측에 action을 사용하는 것과
+        formaction을 활용하는 것은 똑같다.
+        어디 주소에서 data를 활용할 것인지 명시해주는 역할을 한다.
+        post로 넘겨주기 때문에 update.js에서도 get으로 처리하지 않고
+        post로 처리해줘야 한다. --}}
+    </form>
+    {{/each}}
+</table>
