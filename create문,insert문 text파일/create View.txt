@@ -1,0 +1,15 @@
+create View Schedule as
+select 	L.Flight_no as 'Flight_no', 
+	L.Leg_no as 'Leg_no',
+	L.Airplane_id as 'Airplane_id',
+	L.date as 'Date',
+	A_A.Name as 'Arrival_Name', 
+	F_L.Scheduled_Arrival_time as 'Scheduled_Arrival_time',
+         	D_A.Name as 'Departure_Name', 
+	F_L.Scheduled_departure_time as 'Scheduled_departure_time',
+	F.Fare_code as 'Fare_code', 
+         	F.Restrictions as 'Restrictions', 
+	L.Number_of_available_seats as 'Number_of_available_seats'
+from Flight_Leg as F_L, Leg_instance as L, Fare as F, Airport as D_A, Airport as A_A
+where L.Flight_no = F_L.Flight_no and L.Flight_no = F.Flight_no and L.Departure_airport_code =D_A.Airport_code
+and L.Arrival_airport_code=A_A.Airport_code;

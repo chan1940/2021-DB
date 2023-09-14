@@ -1,0 +1,54 @@
+<h1>{{ title }}</h1>
+<div>
+<table>
+     <tr>
+        <td>비행 번호</td>
+        <td>경유 횟수</td>
+        <td>비행기 코드</td>
+        <td>운행 날짜</td>
+        <td>출발 공항</td>
+        <td>예정 출발 시간</td>
+        <td>도착 공항</td>
+        <td>예정 도착 시간</td>
+        <td>좌석 등급</td>
+        <td>수하물 제한 무게</td>
+        <td>탑승가능 좌석 수</td>
+    </tr>
+    {{#each SCHEDULE}}
+    <form method="post">
+    <tr>        
+        <input id="Name" name="Flight_no" type="hidden" value={{Flight_no}}>
+        <input id="Name" name="Leg_no" type="hidden" value={{Leg_no}}>
+        <td>{{Flight_no}}</td>
+        <td>{{Leg_no}}</td>
+        <td>{{Airplane_id}}</td>
+        <td>{{Date}}</td>
+        <td>{{Arrival_Name}}</td>
+        <td>{{Scheduled_Arrival_time}}</td>
+        <td>{{Departure_Name}}</td>
+        <td>{{Scheduled_departure_time}}</td>
+        <td>{{Fare_code}}</td>
+        <td>{{Restrictions}}</td>
+        <td>{{Number_of_available_seats}}</td>
+        <td><input id="Name" name="customerName" type="text" placeholder="customerName"></td>
+        <td><input id="Name" name="customerPhone" type="text" placeholder="customerPhone"></td>
+
+        <td><input id="Name" name="seat_number" type="text" placeholder="seat_number"></td>
+          <td><input id="Name" name="Date" type="text" placeholder="Date"></td>
+
+            <td style="border: none; margin-left: 10px;">
+                <button 
+                 style="margin-left: 10px;" 
+                 name='reserve' 
+                 type="submit" 
+                 value="예약" 
+                 formaction="/reserve"
+                >
+                예약
+                </button>
+            </td>
+    </tr>
+    </form>
+    {{/each}}
+</table>
+</div>

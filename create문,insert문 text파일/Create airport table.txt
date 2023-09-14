@@ -1,0 +1,88 @@
+CREATE TABLE USER
+( Id VARCHAR(20) NOT NULL,
+ Password VARCHAR(20) NOT NULL,
+ Role VARCHAR(5) NOT NULL,
+ PRIMARY KEY (id));
+
+create table AIRPORT(
+    Airport_code int not null,
+    Name varchar(20) not null,
+    City varchar(20) not null,
+    State varchar(20) not null,
+    Number_of_employee int not null,
+    primary key(Airport_code),
+    unique key(Name));
+
+create table Airplane_model(
+   Airplane_model_name varchar(20) not null,
+   Max_seats int not null,
+   Company varchar(20),
+   primary key(Airplane_model_name) ); 
+
+
+create table CAN_LAND(
+    Airplane_model_name varchar(20) not null,
+    Airport_code int not null,
+    primary key(Airplane_model_name, Airport_code),
+    foreign key(Airplane_model_name) references Airplane_model(Airplane_model_name),
+    foreign key(Airport_code) references Airport(Airport_code) );
+
+create table Airplane(
+    Airplane_id int not null,
+    Total_number_of_seats int not null,
+    Airplane_model varchar(20) not null,
+    primary key(Airplane_id),
+    foreign key(Airplane_model) references Airplane_model(Airplane_model_name));
+
+ create table Flight(
+    Flight_number int not null,
+    Airline varchar(20) not null,
+    Weekdays varchar(7) not null,
+    Pilot Varchar(10) not null,
+    primary key(Flight_number));
+
+create table Flight_Leg(
+    Flight_no int not null,
+    Leg_number int not null,
+    Departure_airport_code int not null,
+    Scheduled_departure_time Time not null,
+    Arrival_airport_code int not null,
+    Scheduled_arrival_time Time not null,
+    primary key(Flight_no, Leg_number),
+    foreign key (Flight_no) references Flight(Flight_number),
+    foreign key (Departure_airport_code) references Airport(Airport_code),
+    foreign key (Arrival_airport_code) references Airport(Airport_code) );
+
+create table Leg_Instance(
+   Flight_no int not null,
+   Leg_no int not null,
+   Date date not null,
+   Number_of_available_seats int not null,
+   Airplane_id int not null,
+   Departure_airport_code int not null,
+   Actual_departure_time time not null,
+   Arrival_airport_code int not null,
+   Actual_arrival_time time not null,
+   primary key(Flight_no, Leg_no, Date),
+   foreign key(Airplane_id) references Airplane(Airplane_id),
+   foreign key (Flight_no, Leg_no) references Flight_Leg(Flight_no, Leg_number),
+   foreign key (Departure_airport_code) references Airport(Airport_code),
+   foreign key (Arrival_airport_code) references Airport(Airport_code) );
+
+create table Fare (
+   Flight_no int not null,
+   Fare_code varchar(10) not null,
+   Amount int not null,
+   Restrictions varchar(20) not null,
+   primary key(Flight_no, Fare_code),
+   foreign key (Flight_no) references Flight(Flight_number) );
+
+create table Seat(
+   Flight_no int not null,
+   Leg_no int not null,
+   Date date not null,
+   Seat_number int not null,
+   Customer_name varchar(20) not null,
+   Customer_phone char(11) not null,
+   primary key(Flight_no, Leg_no, Date, Seat_number),
+   foreign key (Flight_no, Leg_no, Date) references Leg_Instance(Flight_no, Leg_no,Date) );

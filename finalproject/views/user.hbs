@@ -1,0 +1,23 @@
+<h1>{{ title1 }}</h1>
+<div>
+<table>
+     <tr>
+        <td>Flight_no</td>
+        <td>Leg_no</td>
+        <td>Date</td>
+        <td>seat_number</td>
+        <td>예약자 이름</td>
+        <td>예약자 폰번호</td>
+    </tr>
+    {{#each SEAT}}
+    <tr>
+        <td>{{f1}}</td>
+        <td>{{n1}}</td>
+        <td>{{d1}}</td>
+        <td>{{s1}}</td>
+        <td>{{c1}}</td>
+        <td>{{c2}}</td>
+    </tr>
+    {{/each}}
+</table>
+</div>

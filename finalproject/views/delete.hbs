@@ -1,0 +1,110 @@
+<h1>{{title1}}</h1>
+<div>
+<table>
+    <tr>
+        <td>Airport_code</td>
+        <td>Name</td>
+        <td>City</td>
+        <td>State</td>
+        <td>Number_of_employee</td>
+        {{!-- 열마다 위의 값을 넣어준다. --}}
+    </tr>
+    {{!-- 데이터가 입력될때마다 반복수행되는 부분 --}}
+    {{#each AIRPORT}}
+    <form method="post">
+        <tr>
+            <td>{{Airport_code}}</td>
+            <td>{{Name}}</td>
+            <td>{{City}}</td>
+            <td>{{State}}</td>
+            <td>{{Number_of_employee}}</td>
+
+            <td style="border: none; margin-left: 10px;">
+                <button 
+                 style="margin-left: 10px;" 
+                 name='delBtn1' 
+                 type="submit" 
+                 value="{{Airport_code}}" 
+                 formaction="/delete"
+                >
+                삭제
+                </button>
+            </td>
+        </tr>
+    </form>
+ {{/each}}
+</table>
+</div>
+
+<h1>{{title2}}</h1>
+<div>
+<table>
+    <tr>
+        <td>Airplane_id</td>
+        <td>Total_number_of_seats</td>
+        <td>Airplane_model</td>
+    </tr>
+    {{!-- 데이터가 입력될때마다 반복수행되는 부분 --}}
+    {{#each AIRPLANE}}
+    <form method="post">
+        <tr>
+            <td>{{Airplane_id}}</td>
+            <td>{{Total_number_of_seats}}</td>
+            <td>{{Airplane_model}}</td>
+
+            <td style="border: none; margin-left: 10px;">
+                <button 
+                 style="margin-left: 10px;" 
+                 name='delBtn2' 
+                 type="submit" 
+                 value="{{Airplane_id}}" 
+                 formaction="/delete"
+                >
+                삭제
+                </button>
+            </td>
+        </tr>
+    </form>
+ {{/each}}
+</table>
+</div>
+
+<div>
+<h1>{{title3}}</h1>
+<table>
+    <tr>
+        <td>Flight_number</td>
+        <td>Airline</td>
+        <td>Weekdays</td>
+        <td>Pilot</td>
+        {{!-- 열마다 위의 값을 넣어준다. --}}
+    </tr>
+    {{!-- 데이터가 입력될때마다 반복수행되는 부분 --}}
+    {{#each FLIGHT}}
+    <form method="post">
+        <tr>
+            <td>{{Flight_number}}</td>
+            <td>{{Airline}}</td>
+            <td>{{Weekdays}}</td>
+            <td>{{Pilot}}</td>
+            <td style="border: none; margin-left: 10px;">
+                <button 
+                 style="margin-left: 10px;" 
+                 name='delBtn3' 
+                 type="submit" 
+                 value="{{Flight_number}}" 
+                 formaction="/delete"
+                >
+                삭제
+                </button>
+            </td>
+        </tr>
+    </form>
+ {{/each}}
+</table>
+</div>
+<div class="buttonContainer">
+    <button onclick="location.href = 'http://localhost:3001/insert'">insert</button>
+    <button onclick="location.href = 'http://localhost:3001/update'">update</button>
+    <button onclick="location.href = 'http://localhost:3001/select'">select</button>
+</div>

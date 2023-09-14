@@ -1,0 +1,23 @@
+select * from airplane;
+
+select * from airplane_model;
+
+select * from airport;
+
+select * from can_land;
+
+select * from fare;
+
+select * from flight;
+
+select * from flight_leg;
+
+select * from leg_instance;
+
+select * from seat;
+
+select * from user;
+
+select * from schedule;
+
+

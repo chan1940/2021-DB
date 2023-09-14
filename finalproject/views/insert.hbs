@@ -1,0 +1,79 @@
+<h1>AIRPORT 데이터 삽입</h1>
+
+<form name="AIRPORT" method="post" action='/insert'>
+
+    <div>
+        <label for="Airport_code">Airport_code</label>
+        <input id="Airport_code" name="Airport_code" type="text" required placeholder="Airport_code">
+    </div>
+    <div>
+        <label for="Name">Name</label>
+        <input id="Name" name="Name" type="text" placeholder="Name">
+    </div>
+    <div>
+        <label for="City">City</label>
+        <input id="City" name="City" type="text" placeholder="City">
+    </div>
+    <div>
+        <label for="State">State</label>
+        <input id="State" name="State" type="text" placeholder="State">
+    </div>
+    <div>
+        <label for="Number_of_employee">Number_of_employee</label>
+        <input id="Number_of_employee" name="Number_of_employee" type="text" placeholder="Number_of_employee">
+    </div>
+    <div>
+        <input type="submit" value="삽입">
+    </div>
+</form>
+
+<h1>AIRPLANE 데이터 삽입</h1>
+
+<form name="AIRPLANE" method="post" action='/insert'>
+
+    <div>
+        <label for="Airplane_id">Airplane_id</label>
+        <input id="Airplane_id" name="Airplane_id" type="text" required placeholder="Airplane_id">
+    </div>
+    <div>
+        <label for="Total_number_of_seats">Total_number_of_seats</label>
+        <input id="Total_number_of_seats" name="Total_number_of_seats" type="text" placeholder="Total_number_of_seats">
+    </div>
+    <div>
+        <label for="Airplane_model">Airplane_model</label>
+        <input id="Airplane_model" name="Airplane_model" type="text" placeholder="Airplane_model">
+    </div>
+    <div>
+        <input type="submit" value="삽입">
+    </div>
+</form>
+
+<h1>FLIGHT 데이터 삽입</h1>
+
+<form name="FLIGHT" method="post" action='/insert'>
+
+    <div>
+        <label for="Flight_number">Flight_number</label>
+        <input id="Flight_number" name="Flight_number" type="text" required placeholder="Flight_number">
+    </div>
+    <div>
+        <label for="Airline">Name</label>
+        <input id="Airline" name="Airline" type="text" placeholder="Airline">
+    </div>
+    <div>
+        <label for="Weekdays">Weekdays</label>
+        <input id="Weekdays" name="Weekdays" type="text" placeholder="Weekdays">
+    </div>
+    <div>
+        <label for="Pilot">Pilot</label>
+        <input id="Pilot" name="Pilot" type="text" placeholder="Pilot">
+    </div>
+    <div>
+        <input type="submit" value="삽입">
+    </div>
+</form>
+<div class="buttonContainer">
+    <button onclick="location.href = 'http://localhost:3001/delete'">delete</button>
+    <button onclick="location.href = 'http://localhost:3001/update'">update</button>
+    <button onclick="location.href = 'http://localhost:3001/select'">select</button>
+</div>
